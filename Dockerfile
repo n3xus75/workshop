@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install flask
+# Install required Python packages
+RUN pip install flask azure-storage-blob werkzeug
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
