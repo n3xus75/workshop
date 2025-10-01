@@ -1,0 +1,33 @@
+{
+  "name": "image-gallery-app",
+  "version": "1.0.0",
+  "description": "A modern image gallery application that allows users to upload images to storage and display them in a gallery.",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/app.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "ejs": "^3.1.6",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.8",
+    "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.7",
+    "@types/ejs": "^3.0.7"
+  },
+  "keywords": [
+    "image",
+    "gallery",
+    "upload",
+    "storage"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
