@@ -83,6 +83,19 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Get Storage Account Connection String
+        id: conn_str
+        run: |
+          CONN_STR=$(az storage account show-connection-string --name warsztatowe3245 --resource-group rg-03 --query connectionString -o tsv)
+          echo "connection_string=$CONN_STR" >> $GITHUB_OUTPUT
+      
+      - name: Set App Service Settings
+        run: |
+          az webapp config appsettings set \
+            --resource-group rg-03 \
+            --name example-webapp-tutajnazwa333 \
+            --settings AZURE_CONNECTION_STRING='${{ steps.conn_str.outputs.connection_string }}' AZURE_CONTAINER_NAME='gallery'
         
       - name: Update App Service
         run: |
